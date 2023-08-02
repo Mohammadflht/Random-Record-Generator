@@ -1,0 +1,216 @@
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url(assets/fonts/Roboto-Regular.ttf);
+}
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    background: #F7FFE5;
+    color: #234921;
+
+}
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+/* header section */
+.header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+}
+.header-text {
+    width: 90%;
+    height: 100%;
+    font-size: 1.3rem;
+    background-color: #A0C49D;
+    text-align: center;
+    padding-top: 1.4rem;
+    text-shadow: 0 0 2px #234921;
+}
+.project-title {
+    width: 10%;
+    height: 100%;
+    padding: 0.6rem 0.3rem;
+    text-align: center;
+    font-size: 1.2rem;
+    animation: blinks 4s linear infinite;
+    text-shadow: 0 0 2px #234921;
+    /* border-right: 4px solid #A0C49D; */
+}
+@keyframes blinks {
+    0%{background-color: transparent;};
+    50%{background-color: #A0C49D;};
+    100%{background-color: transparent;};
+}
+
+/* main section */
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+}
+.left-side {
+    width: 10%;
+    height: 100%;
+    background-color: #A0C49D;
+    border-right: 4px solid #A0C49D;
+}
+.generator-btn {
+    width: 65%;
+    padding: 10px;
+    border: 4px solid #F7FFE5;
+    border-radius: 5px;
+    background: #F7FFE5;
+    cursor: pointer;
+    margin: 2.6rem 0 2.6rem 1.4rem;
+    font-size: 0.9rem;
+    transition: all .4s;
+    color: #40783b;
+}
+.generator-btn:hover {
+    border: 4px solid #F7FFE5;
+    background: #A0C49D;
+    color: #F7FFE5;
+}
+.history-panel {
+    width: 88%;
+    height: 70%;
+    background-color:#F7FFE5;
+    margin: auto;
+    overflow-y: scroll;
+}
+.contents-area {
+    width: 70%;
+    height: 100%;
+    background-color: transparent;
+}
+.right-side {
+    width: 20%;
+    height: 100%;
+    background-color: transparent;
+    /* border-left: 4px solid #A0C49D; */
+    padding: 2rem 0;
+}
+.constraints-form {
+    width: 80%;
+    height: 70%;
+    background-color: #A0C49D;
+    margin: auto;
+    padding: 2rem 1rem;
+    border-radius: 4px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+}
+.min-length {
+    width: 100%;
+    appearance: none;
+    border-radius: 12px;
+    background-color: #F7FFE5;
+    cursor: pointer;
+    margin: 0.6rem 0 0;
+}
+.min-length::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #A0C49D;
+    border-radius: 50%;
+}
+.min-length::-moz-range-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background-color: #A0C49D;
+    border-radius: 50%;
+}
+.min-length-lable {
+    text-shadow: 0 0 2px #234921;
+}
+#min-result {
+    margin: 1rem 0 1rem 0;
+}
+.max-length {
+    width: 100%;
+    appearance: none;
+    border-radius: 12px;
+    background-color: #F7FFE5;
+    cursor: pointer;
+    margin: 0.6rem 0 0;
+}
+.max-length::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #A0C49D;
+    border-radius: 50%;
+}
+.max-length::-moz-range-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background-color: #A0C49D;
+    border-radius: 50%;
+}
+.max-length-lable {
+    text-shadow: 0 0 2px #234921;
+}
+#max-result {
+    margin: 1rem 0 1rem 0;
+}
+.filter-text {
+    width: 100%;
+    cursor: pointer;
+    margin: 0.6rem 0 0;
+    text-shadow: 0 0 2px #234921;
+}
+.checkbox {
+    width: 1rem;
+    height: 1rem;
+    margin: .4rem;
+    accent-color: #55ff12;
+}
+.display-mode {
+    width: 80%;
+    height: 16%;
+    background-color: #A0C49D;
+    margin: 1rem auto;
+    border-radius: 4px;
+}
+
+/* footer section */
+.footer {
+    width: 100%;
+    height: 70px;
+    display: flex;
+}
+.footer div{
+    width: 90%;
+    height: 100%;
+    background-color: #A0C49D;
+}
+.current-time {
+    width: 10%;
+    height: 100%;
+    padding-top: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    animation: blinks 4s linear infinite;
+    text-shadow: 0 0 2px #234921;
+    color: #234921;
+}
+
+
+
