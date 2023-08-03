@@ -19,25 +19,76 @@
         <section class="main">
             <div class="left-side">
                 <button class="generator-btn">Generate</button>
-                <div class="history-panel"></div>
+                <div class="history-panel">
+                    <div class="a"></div>
+                    <div class="a"></div>
+                    <div class="a"></div>
+                    <div class="a"></div>
+                </div>
             </div>
-            <div class="contents-area"></div>
+            <div class="contents-area">
+                <div id="record-table">
+                    <table id="record">
+                        <thead>
+                            <tr>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+                </div>
+            </div>
 
             <div class="right-side">
                 <div class="constraints-form">
+                    <div class="status-button-division">
+                        <button class="firstname-btn field-status-button" onclick="showconstraint('field1')">F N</button>
+                        <button class="last-btn field-status-button" onclick="showconstraint('field2')">L N</button>
+                        <button class="age-btn field-status-button" onclick="showconstraint('field3')">Age</button>
+                        <button class="email-btn field-status-button" onclick="showconstraint('field4')">Email</button>
+                    </div>
                     <label class="min-length-lable" for="#">min length</label>
-                    <input oninput="showValue('min-length', 'min-result')" class="min-length" type="range" min="0" max="30">
+                    <input oninput="showValue('min-length', 'min-result')" id="min-length" type="range" min="0" max="30">
                     <p id="min-result"></p>
 
                     <label class="max-length-lable" for="#">max length</label>
-                    <input oninput="showValue('max-length', 'max-result')" class="max-length" type="range" min="0" max="30">
+                    <input oninput="showValue('max-length', 'max-result')" id="max-length" type="range" min="0" max="30">
                     <p id="max-result"></p>
 
-                    <label class="filter-text" for="#">Includes: (A-Z and 1,2,... and @#$...)</label>
-                    <input class="checkbox" type="checkbox">
+                    <div>
+                        <label class="filter-text" for="#">Upercase</label>
+                        <input id="checkbox" type="checkbox">
+                    </div>
+
+                    <div>
+                        <label class="filter-text" for="#">Numbers</label>
+                        <input id="checkbox" type="checkbox">
+                    </div>
+
+                    <div>
+                        <label class="filter-text" for="#">Symbols</label>
+                        <input id="checkbox" type="checkbox">
+                    </div>
 
                 </div>
-                <div class="display-mode"></div>
+
+                <div class="display-mode">
+                    <p class="display-title"></p>
+                    <div class="display-name">
+                        <label class="display-text" for="display-mode-check">Table</label>
+                        <input type="radio" id="display-mode-check" name="display" value="mail"/>
+                    </div>
+                    <div class="display-name">
+                        <label class="display-text" for="display-mode-check">Details</label>
+                        <input type="radio" id="display-mode-check" name="display" value="mail"/>
+                </div>
+
+
+
+                </div>
             </div>
 
         </section>
