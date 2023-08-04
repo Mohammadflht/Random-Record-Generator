@@ -6,12 +6,17 @@ function updateTime() {
     let hours = currentTime.getHours();
     let minutes = currentTime.getMinutes();
     let seconds = currentTime.getSeconds();
+    let year = currentTime.getFullYear();
+    let dayNumber = currentTime.getDate();
+    let mounthNumber = currentTime.getMonth() + 1;
 
     hours = (hours < 10 ? "0" : "") + hours;
     minutes = (minutes < 10 ? "0" : "") + minutes;
     seconds = (seconds < 10 ? "0" : "") + seconds;
+    dayNumber = (dayNumber < 10 ? "0" : "") + dayNumber;
+    mounthNumber = (mounthNumber < 10 ? "0" : "") + mounthNumber;
 
-    timePart.innerHTML = hours + ":" + minutes + ":" + seconds;
+    timePart.innerHTML = hours + ":" + minutes + ":" + seconds + " " + dayNumber + "/" + mounthNumber + "/" + year;
 
 }
 setInterval(updateTime, 1000);
@@ -66,7 +71,6 @@ records.forEach(function (item) {
   
     tableBody.appendChild(row);
 });
-
 
 
 
