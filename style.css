@@ -95,13 +95,27 @@ body {
 .history-panel::-webkit-scrollbar {
     width: 20px;
 }
-
+.history-text {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+.history-text p {
+    width: 100%;
+    border-bottom: 1px solid #234921;
+    padding: 0.4rem 0.2rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+.history-text p:first-child {
+    display: none;
+}
 /* content area */
 
 .contents-area {
     width: 50%;
     height: 90%;
-    overflow: scroll;
+    overflow-y: scroll;
     margin-top: 3rem;
 }
 #record-table {
@@ -109,6 +123,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#table-header {
+    visibility: hidden;
 }
 #record {
     background-color: transparent;
@@ -284,7 +301,27 @@ body {
     width: 90%;
     height: 100%;
     background-color: #A0C49D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.pagination {
+    color: #234921;
+    text-shadow: 0 0 2px #234921;
+    font-size: 1.2rem;
+}
+#row-number-select {
+    padding: .4rem .6rem;
+    background-color: #a0c49dc3;
+    color: #234921;
+    border: 2px solid #234921;
+    border-radius: 6px;
+    cursor: pointer;
+	outline: none;
+}
+
+
+
 .current-time {
     width: 10%;
     height: 100%;
@@ -297,10 +334,4 @@ body {
     background-color: #A0C49D;
 }
 
-/* for test */
-
-.a {
-    width: 100%;
-    height: 300px;
-}
 
