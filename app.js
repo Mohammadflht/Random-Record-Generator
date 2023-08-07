@@ -20,14 +20,36 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 
+var firstNameCharacters = "abcdefghijklmnopqrstuvwxyz";
+var lastNameCharacters = "abcdefghijklmnopqrstuvwxyz";
+var emailCharacters = "abcdefghijklmnopqrstuvwxyz";
+var upercase ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "0123456789"
+var symbols = "!@#$%&"
+
+
+
+// Filter checkbox
+// Filter firstName , lastName and email => Upercase / Numbers / Symbols:
+const firstNameUpercase = document.querySelector('.first-name-upercase');
+const firstNameNumbers = document.querySelector('.first-name-numbers');
+const firstNameSymbols = document.querySelector('.first-name-symbols');
+const lastNameUpercase = document.querySelector('.last-name-upercase');
+const lastNameNumbers = document.querySelector('.last-name-numbers');
+const lastNameSymbols = document.querySelector('.last-name-symbols');
+const emailUpercase = document.querySelector('.email-upercase');
+const emailNumbers = document.querySelector('.email-numbers');
+const emailSymbols = document.querySelector('.email-symbols');
+
 
 // min and max ranges:
 function showValue(range, id) {
-    let ranges = document.querySelector(`#${range}`);
-    let value = document.querySelector(`#${id}`);
-    value.innerHTML = "Value: " + ranges.value;
+  let ranges = document.querySelector(`#${range}`);
+  let value = document.querySelector(`#${id}`);
+  value.innerHTML = "Value: " + ranges.value;
 }
 
+// console.log(firstNameMinValue);
 
 // Generate Random  Records (Functionality):
 const generateButton = document.querySelector(".generator-btn");
@@ -37,13 +59,14 @@ const recordsNumber = document.querySelector(".records-number");
 const recordsTime = document.querySelector(".records-time");
 const rowSelect = document.querySelector("#row-number-select");
 const tableHeader = document.querySelector("#table-header");
+const historyText = document.querySelector(".history-text");
 var numRows = "";
 var timeToRecord = "";
+
 
   generateButton.addEventListener('click', () => {
   const rowsPerPageSelect = rowSelect;
   const numPages = Math.ceil(numRows / rowsPerPageSelect.value);
-  const historyText = document.querySelector(".history-text");
   const p = document.createElement("p");
   p.innerHTML = `${timeToRecord} / ${numRows}`;
   historyText.appendChild(p);
@@ -67,40 +90,428 @@ var timeToRecord = "";
   recordsNumber.innerHTML = numRows;
   tableBody.innerHTML = '';
 
+  var minAge = parseInt(document.getElementById("age-min-length").value);
+  var maxAge = parseInt(document.getElementById("age-max-length").value);
+
+    // if(firstNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
+    //   firstNameCharacters = firstNameCharacters.replace(upercase, "");
+    // };
+
+  if(firstNameUpercase.value === "1") {
+    firstNameUpercase.style.backgroundColor = "#F7FFE5";
+    if(!firstNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
+    firstNameCharacters = firstNameCharacters.concat(upercase);
+      }
+    }else{
+    firstNameUpercase.style.backgroundColor = "#f7ffe569";
+    firstNameCharacters = firstNameCharacters.replace(upercase, "");
+    }
+
+    if(firstNameNumbers.value === "1") {
+      firstNameNumbers.style.backgroundColor = "#F7FFE5";
+      if(!firstNameCharacters.includes("0123456789")){
+      firstNameCharacters = firstNameCharacters.concat(numbers);
+        }
+      }else{
+      firstNameNumbers.style.backgroundColor = "#f7ffe569";
+      firstNameCharacters = firstNameCharacters.replace(numbers, "");
+      }
+
+      if(firstNameSymbols.value === "1") {
+        firstNameSymbols.style.backgroundColor = "#F7FFE5";
+        if(!firstNameCharacters.includes("!@#$%&")){
+        firstNameCharacters = firstNameCharacters.concat(symbols);
+          }
+        }else{
+        firstNameSymbols.style.backgroundColor = "#f7ffe569";
+        firstNameCharacters = firstNameCharacters.replace(symbols, "");
+      }
+
+      if(lastNameUpercase.value === "1") {
+        lastNameUpercase.style.backgroundColor = "#F7FFE5";
+        if(!lastNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
+          lastNameCharacters = lastNameCharacters.concat(upercase);
+          }
+        }else{
+        lastNameUpercase.style.backgroundColor = "#f7ffe569";
+        lastNameCharacters = lastNameCharacters.replace(upercase, "");
+      }
+      if(lastNameNumbers.value === "1") {
+        lastNameNumbers.style.backgroundColor = "#F7FFE5";
+        if(!lastNameCharacters.includes("0123456789")){
+          lastNameCharacters = lastNameCharacters.concat(numbers);
+          }
+        }else{
+          lastNameNumbers.style.backgroundColor = "#f7ffe569";
+        lastNameCharacters = lastNameCharacters.replace(numbers, "");
+      }
+
+      if(lastNameSymbols.value === "1") {
+        lastNameSymbols.style.backgroundColor = "#F7FFE5";
+        if(!lastNameCharacters.includes("!@#$%&")){
+          lastNameCharacters = lastNameCharacters.concat(symbols);
+          }
+        }else{
+          lastNameSymbols.style.backgroundColor = "#f7ffe569";
+        lastNameCharacters = lastNameCharacters.replace(symbols, "");
+      }
+
+      if(emailUpercase.value === "1") {
+        emailUpercase.style.backgroundColor = "#F7FFE5";
+        if(!emailCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
+          emailCharacters = emailCharacters.concat(upercase);
+          }
+        }else{
+          emailUpercase.style.backgroundColor = "#f7ffe569";
+          emailCharacters = emailCharacters.replace(upercase, "");
+      }
+
+      if(emailNumbers.value === "1") {
+        emailNumbers.style.backgroundColor = "#F7FFE5";
+        if(!emailCharacters.includes("0123456789")){
+          emailCharacters = emailCharacters.concat(numbers);
+          }
+        }else{
+          emailNumbers.style.backgroundColor = "#f7ffe569";
+          emailCharacters = emailCharacters.replace(numbers, "");
+      }
+
+      if(emailSymbols.value === "1") {
+        emailSymbols.style.backgroundColor = "#F7FFE5";
+        if(!emailCharacters.includes("!@#$%&")){
+          emailCharacters = emailCharacters.concat(symbols);
+          }
+        }else{
+          emailSymbols.style.backgroundColor = "#f7ffe569";
+          emailCharacters = emailCharacters.replace(symbols, "");
+      }
+
   for (let i = 0; i < numRows; i++) {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>${generateRandomFirstName()}</td>
       <td>${generateRandomLastName()}</td>
-      <td>${Math.floor(Math.random() * (99 - 18 + 1)) + 18}</td>
+      <td>${Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge}</td>
       <td>${generateRandomEmail()}</td>`;
     tableBody.appendChild(row);
+
   }
 
-  pagination.innerHTML = `Number of pages: ${numPages}`;
+  // pagination.innerHTML = `Number of pages: ${numPages}`;
+
+
+
+
+
+
 
   rowsPerPageSelect.addEventListener('change', () => {
-    const newNumPages = Math.ceil(numRows / rowsPerPageSelect.value);
-    pagination.innerHTML = `Number of pages: ${newNumPages}`;
+    // const newNumPages = Math.ceil(numRows / rowsPerPageSelect.value);
+    // pagination.innerHTML = `Number of pages: ${newNumPages}`;
+
+    var currentPage = 1;
+    // Function to generate pagination buttons
+    function generatePaginationButtons() {
+      const paginationDiv = document.querySelector(".pagination");
+
+      // Clear previous buttons
+      paginationDiv.innerHTML = "";
+
+      // Generate buttons for current page and two pages before/after
+      let startPage = currentPage - 2;
+      let endPage = currentPage + 2; 
+
+      if (startPage < 1) {
+        startPage = 1;
+        endPage = Math.min(numPages, startPage + 4);
+      }
+
+      if (endPage > numPages) {
+        endPage = numPages;
+        startPage = Math.max(1, endPage -4);
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        let button = document.createElement("button");
+        button.innerText = i;
+        button.addEventListener("click", () => goToPage(i));
+        if (i === currentPage) {
+          button.classList.add("active");
+        }
+        paginationDiv.appendChild(button);
+      }
+    }
+
+    // Function to go to a specific page
+    function goToPage(page) {
+      currentPage = page;
+      generatePaginationButtons();
+      updateTable();
+    }
+
+    // Function to update the table based on current page
+    function updateTable() {
+      const table = document.getElementById("record");
+      const rows = table.getElementsByTagName("tr");
+
+      // Hide all rows
+      for (let i = 0; i < rows.length; i++) {
+        rows[i].style.display = "none";
+      }
+      var recordsPerPage = rowSelect.value
+      // Show rows for current page
+      const startIndex = (currentPage - 1) * recordsPerPage;
+      const endIndex = Math.min(startIndex + recordsPerPage, numRows);
+
+      for (let i = startIndex; i < endIndex; i++) {
+        rows[i].style.display = "";
+      }
+    }
+
+    // Function to go to previous page
+    function goToPrevPage() {
+      if (currentPage > 1) {
+        goToPage(currentPage - 1);
+      }
+    }
+
+    // Function to go to next page
+    function goToNextPage() {
+      if (currentPage < numPages) {
+        goToPage(currentPage + 1);
+      }
+    }
+
+
+    // Attach event listeners to prev/next buttons
+
+    let prevBtn = document.getElementById("prev-btn")
+    prevBtn.addEventListener("click", goToPrevPage);
+
+    let nextBtn = document.getElementById("next-btn")
+    nextBtn.addEventListener("click", goToNextPage);
+
+    generatePaginationButtons();
+    updateTable();
+
+    prevBtn.style.visibility ="visible";
+    nextBtn.style.visibility ="visible";
+    // Generate initial pagination buttons and show first page
+
+
+
   });
 
 });
 
+
 function generateRandomFirstName() {
-  const names = ['Mohammad', 'Negin', 'Alireza', 'Hoda', 'Navid', 'Sepideh', 'Fatemeh', 'Mahsa', 'Saba', 'Sohrab', 'Sadegh', 'Akram', 'Melika', 'Atefeh', 'Majid', 'Amir', 'Ali'];
-  return names[Math.floor(Math.random() * names.length)];
+  var min = parseInt(document.getElementById("first-name-min-length").value);
+  var max = parseInt(document.getElementById("first-name-max-length").value);
+
+  var result = "";
+  var length = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  for (var i = 0; i < length; i++) {
+    result += firstNameCharacters.charAt(Math.floor(Math.random() * firstNameCharacters.length));
+  }
+
+  return result;
 }
-function generateRandomLastName() {
-    const names = ['Hasani', 'Sadeghi', 'Falahati', 'Ahmadi', 'Akbari', 'Nazari', 'Rostami', 'Moradi'];
-    return names[Math.floor(Math.random() * names.length)];
+
+
+function generateRandomLastName(){
+    var min = parseInt(document.getElementById("last-name-min-length").value);
+    var max = parseInt(document.getElementById("last-name-max-length").value);
+
+    var result = "";
+    var length = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    for (var i = 0; i < length; i++) {
+      result += lastNameCharacters.charAt(Math.floor(Math.random() * lastNameCharacters.length));
+    }
+
+    return result;
 }
+
 function generateRandomEmail() {
-  const domains = ['gmail.com', 'yahoo.com', 'hotmail.com'];
-  const name = generateRandomFirstName().toLowerCase();
+  const domains = ['@gmail.com', '@yahoo.com'];
   const domain = domains[Math.floor(Math.random() * domains.length)];
 
-  return `${name}@${domain}`;
+  var min = parseInt(document.getElementById("email-min-length").value);
+  var max = parseInt(document.getElementById("email-max-length").value);
+
+  var result = "";
+  var length = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  for (var i = 0; i < length - 10; i++) {
+    result += emailCharacters.charAt(Math.floor(Math.random() * emailCharacters.length));
+  }
+
+  return `${result}${domain}`;
 }
+
+
+
+// Constraint part:
+
+
+const firstNameConstraint = document.querySelector(".firstname-btn");
+const lastNameConstraint = document.querySelector(".lastname-btn");
+const ageConstraint = document.querySelector(".age-btn");
+const emailConstraint = document.querySelector(".email-btn");
+
+const firstNameTools = document.querySelector(".first-name-tools");
+const lastNameTools = document.querySelector(".last-name-tools");
+const ageTools = document.querySelector(".age-tools");
+const emailTools = document.querySelector(".email-tools");
+
+firstNameConstraint.addEventListener('click', () => {
+  firstNameConstraint.style.backgroundColor = "#F7FFE5";
+  lastNameConstraint.style.backgroundColor = "#f7ffe57b";
+  ageConstraint.style.backgroundColor = "#f7ffe57b";
+  emailConstraint.style.backgroundColor = "#f7ffe57b";
+  firstNameTools.style.display = "block";
+  lastNameTools.style.display = "none";
+  ageTools.style.display = "none";
+  emailTools.style.display = "none";
+});
+lastNameConstraint.addEventListener('click', () => {
+  firstNameConstraint.style.backgroundColor = "#f7ffe57b";
+  lastNameConstraint.style.backgroundColor = "#F7FFE5";
+  ageConstraint.style.backgroundColor = "#f7ffe57b";
+  emailConstraint.style.backgroundColor = "#f7ffe57b";
+  firstNameTools.style.display = "none";
+  lastNameTools.style.display = "block";
+  ageTools.style.display = "none";
+  emailTools.style.display = "none";
+});
+ageConstraint.addEventListener('click', () => {
+  firstNameConstraint.style.backgroundColor = "#f7ffe57b";
+  lastNameConstraint.style.backgroundColor = "#f7ffe57b";
+  ageConstraint.style.backgroundColor = "#F7FFE5";
+  emailConstraint.style.backgroundColor = "#f7ffe57b";
+  firstNameTools.style.display = "none";
+  lastNameTools.style.display = "none";
+  ageTools.style.display = "block";
+  emailTools.style.display = "none";
+});
+emailConstraint.addEventListener('click', () => {
+  firstNameConstraint.style.backgroundColor = "#f7ffe57b";
+  lastNameConstraint.style.backgroundColor = "#f7ffe57b";
+  ageConstraint.style.backgroundColor = "#f7ffe57b";
+  emailConstraint.style.backgroundColor = "#F7FFE5";
+  firstNameTools.style.display = "none";
+  lastNameTools.style.display = "none";
+  ageTools.style.display = "none";
+  emailTools.style.display = "block";
+});
+
+
+
+
+
+
+
+
+
+
+
+// Filter firstName , lastName and email => Upercase / Numbers / Symbols:
+
+
+
+firstNameUpercase.addEventListener("change", () => {
+  if(firstNameUpercase.value === "1"){
+    firstNameUpercase.style.backgroundColor = "#F7FFE5";
+  }else if(firstNameUpercase.value === "0") {
+    firstNameUpercase.style.backgroundColor = "#f7ffe569"
+  }
+})
+firstNameNumbers.addEventListener("change", () => {
+  if(firstNameNumbers.value === "1"){
+    firstNameNumbers.style.backgroundColor = "#F7FFE5";
+  }else if(firstNameNumbers.value === "0") {
+    firstNameNumbers.style.backgroundColor = "#f7ffe569"
+  }
+})
+firstNameSymbols.addEventListener("change", () => {
+  if(firstNameSymbols.value === "1"){
+    firstNameSymbols.style.backgroundColor = "#F7FFE5";
+  }else if(firstNameSymbols.value === "0") {
+    firstNameSymbols.style.backgroundColor = "#f7ffe569"
+  }
+})
+lastNameUpercase.addEventListener("change", () => {
+  if(lastNameUpercase.value === "1"){
+    lastNameUpercase.style.backgroundColor = "#F7FFE5";
+  }else if(lastNameUpercase.value === "0") {
+    lastNameUpercase.style.backgroundColor = "#f7ffe569"
+  }
+})
+lastNameNumbers.addEventListener("change", () => {
+  if(lastNameNumbers.value === "1"){
+    lastNameNumbers.style.backgroundColor = "#F7FFE5";
+  }else if(lastNameNumbers.value === "0") {
+    lastNameNumbers.style.backgroundColor = "#f7ffe569"
+  }
+})
+lastNameSymbols.addEventListener("change", () => {
+  if(lastNameSymbols.value === "1"){
+    lastNameSymbols.style.backgroundColor = "#F7FFE5";
+  }else if(lastNameSymbols.value === "0") {
+    lastNameSymbols.style.backgroundColor = "#f7ffe569"
+  }
+})
+emailUpercase.addEventListener("change", () => {
+  if(emailUpercase.value === "1"){
+    emailUpercase.style.backgroundColor = "#F7FFE5";
+  }else if(emailUpercase.value === "0") {
+    emailUpercase.style.backgroundColor = "#f7ffe569"
+  }
+})
+emailNumbers.addEventListener("change", () => {
+  if(emailNumbers.value === "1"){
+    emailNumbers.style.backgroundColor = "#F7FFE5";
+  }else if(emailNumbers.value === "0") {
+    emailNumbers.style.backgroundColor = "#f7ffe569"
+  }
+})
+emailSymbols.addEventListener("change", () => {
+  if(emailSymbols.value === "1"){
+    emailSymbols.style.backgroundColor = "#F7FFE5";
+  }else if(emailSymbols.value === "0") {
+    emailSymbols.style.backgroundColor = "#f7ffe569"
+  }
+})
+// rangeBox.style.backgroundColor = "#F7FFE5"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
