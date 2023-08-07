@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/images/shuffle.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <title>Random record generator</title>
 </head>
 <body>
@@ -44,33 +45,89 @@
 
             <div class="right-side">
                 <div class="constraints-form">
+
                     <div class="status-button-division">
                         <button class="firstname-btn field-status-button" onclick="showconstraint('field1')">F N</button>
-                        <button class="last-btn field-status-button" onclick="showconstraint('field2')">L N</button>
+                        <button class="lastname-btn field-status-button" onclick="showconstraint('field2')">L N</button>
                         <button class="age-btn field-status-button" onclick="showconstraint('field3')">Age</button>
                         <button class="email-btn field-status-button" onclick="showconstraint('field4')">Email</button>
                     </div>
-                    <label class="min-length-lable" for="#">min length</label>
-                    <input oninput="showValue('min-length', 'min-result')" id="min-length" type="range" min="0" max="30">
-                    <p id="min-result"></p>
 
-                    <label class="max-length-lable" for="#">max length</label>
-                    <input oninput="showValue('max-length', 'max-result')" id="max-length" type="range" min="0" max="30">
-                    <p id="max-result"></p>
+                    <div class="constraint-tools-box first-name-tools no-display">
+                        <label class="min-length-lable" for="#">min length</label>
+                        <input oninput="showValue('first-name-min-length', 'first-name-min-result')" id="first-name-min-length" type="range" min="1" max="12" class="min-length">
+                        <p id="first-name-min-result"></p>
 
-                    <div>
-                        <label class="filter-text" for="#">Upercase</label>
-                        <input id="checkbox" type="checkbox">
+                        <label class="max-length-lable" for="#">max length</label>
+                        <input oninput="showValue('first-name-max-length', 'first-name-max-result')" id="first-name-max-length" type="range" min="1" max="12" class="max-length">
+                        <p id="first-name-max-result"></p>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Upercase</label>
+                            <input id="checkbox" type="range" class="first-name-upercase" min="0" max="1">
+                        </div>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Numbers</label>
+                            <input id="checkbox" type="range" class="first-name-numbers"min="0" max="1">
+                        </div>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Symbols</label>
+                            <input id="checkbox" type="range" class="first-name-symbols" min="0" max="1">
+                        </div>
                     </div>
 
-                    <div>
-                        <label class="filter-text" for="#">Numbers</label>
-                        <input id="checkbox" type="checkbox">
+                    <div class="constraint-tools-box last-name-tools no-display">
+                        <label class="min-length-lable" for="#">min length</label>
+                        <input oninput="showValue('last-name-min-length', 'last-name-min-result')" id="last-name-min-length" type="range" min="1" max="12" class="min-length">
+                        <p id="last-name-min-result"></p>
+
+                        <label class="max-length-lable" for="#">max length</label>
+                        <input oninput="showValue('last-name-max-length', 'last-name-max-result')" id="last-name-max-length" type="range" min="1" max="12" class="max-length">
+                        <p id="last-name-max-result"></p>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Upercase</label>
+                            <input id="checkbox" type="range" class="last-name-upercase" min="0" max="1">
+                        </div>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Numbers</label>
+                            <input id="checkbox" type="range" class="last-name-numbers"min="0" max="1">
+                        </div>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Symbols</label>
+                            <input id="checkbox" type="range" class="last-name-symbols" min="0" max="1">
+                        </div>
                     </div>
 
-                    <div>
-                        <label class="filter-text" for="#">Symbols</label>
-                        <input id="checkbox" type="checkbox">
+                    <div class="constraint-tools-box age-tools no-display">
+                        <label class="min-length-lable" for="#">min length</label>
+                        <input oninput="showValue('age-min-length', 'age-min-result')" id="age-min-length" type="range" min="1" max="99" class="min-length">
+                        <p id="age-min-result"></p>
+
+                        <label class="max-length-lable" for="#">max length</label>
+                        <input oninput="showValue('age-max-length', 'age-max-result')" id="age-max-length" type="range" min="1" max="99" class="max-length">
+                        <p id="age-max-result"></p>
+
+                    </div>
+
+                    <div class="constraint-tools-box email-tools no-display">
+                        <label class="min-length-lable" for="#">min length</label>
+                        <input oninput="showValue('email-min-length', 'email-min-result')" id="email-min-length" type="range" min="11" max="20" class="min-length">
+                        <p id="email-min-result"></p>
+
+                        <label class="max-length-lable" for="#">max length</label>
+                        <input oninput="showValue('email-max-length', 'email-max-result')" id="email-max-length" type="range" min="11" max="20" class="max-length">
+                        <p id="email-max-result"></p>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Upercase</label>
+                            <input id="checkbox" type="range" class="email-upercase" min="0" max="1">
+                        </div>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Numbers</label>
+                            <input id="checkbox" type="range" class="email-numbers"min="0" max="1">
+                        </div>
+                        <div class="checkbox-division">
+                            <label class="filter-text" for="#">Symbols</label>
+                            <input id="checkbox" type="range" class="email-symbols" min="0" max="1">
+                        </div>
                     </div>
 
                 </div>
@@ -97,15 +154,17 @@
             <span class="current-time"></span>
             <!-- <span class="current-date"></span> -->
             <div class="pagination-panel">
-                <div class="pagination"></div>
+                <div class="page-number">
+                    <button id="prev-btn"><i class="fa fa-arrow-left"></i>Prev</button>
+                    <div class="pagination"></div>
+                    <button id="next-btn">Next<i class="fa fa-arrow-right"></i></button>
+                </div>
                 <div class="select-btn-division">
                     <select name="#" id="row-number-select">
-                            <option disabled>Record Number</option>
+                            <!-- <option disabled>Record Number</option> -->
                             <option value="25">25</option>
                             <option value="50">50</option>
-                            <option value="75">75</option>
                             <option value="100">100</option>
-                            <option value="150">150</option>
                             <option value="200">200</option>
                     </select>
                 </div>
