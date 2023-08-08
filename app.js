@@ -64,148 +64,146 @@ var numRows = "";
 var timeToRecord = "";
 
 
-  generateButton.addEventListener('click', () => {
-  const rowsPerPageSelect = rowSelect;
-  const numPages = Math.ceil(numRows / rowsPerPageSelect.value);
-  const p = document.createElement("p");
-  p.innerHTML = `${timeToRecord} / ${numRows}`;
-  historyText.appendChild(p);
 
-  numRows = Math.floor(Math.random() * (10000 - 500 + 1)) + 500;
-
-  let currentTime = new Date();
-  let hours = currentTime.getHours();
-  let minutes = currentTime.getMinutes();
-  let seconds = currentTime.getSeconds();
-
-  hours = (hours < 10 ? "0" : "") + hours;
-  minutes = (minutes < 10 ? "0" : "") + minutes;
-  seconds = (seconds < 10 ? "0" : "") + seconds;
-
-  timeToRecord = hours + ":" + minutes + ":" + seconds;
-  recordsTime.innerHTML = timeToRecord;
-
-
-  tableHeader.style.visibility = "visible";
-  recordsNumber.innerHTML = numRows;
-  tableBody.innerHTML = '';
-
-  var minAge = parseInt(document.getElementById("age-min-length").value);
-  var maxAge = parseInt(document.getElementById("age-max-length").value);
-
-    // if(firstNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
-    //   firstNameCharacters = firstNameCharacters.replace(upercase, "");
-    // };
-
-  if(firstNameUpercase.value === "1") {
-    firstNameUpercase.style.backgroundColor = "#F7FFE5";
-    if(!firstNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
-    firstNameCharacters = firstNameCharacters.concat(upercase);
-      }
-    }else{
-    firstNameUpercase.style.backgroundColor = "#f7ffe569";
-    firstNameCharacters = firstNameCharacters.replace(upercase, "");
-    }
-
-    if(firstNameNumbers.value === "1") {
-      firstNameNumbers.style.backgroundColor = "#F7FFE5";
-      if(!firstNameCharacters.includes("0123456789")){
-      firstNameCharacters = firstNameCharacters.concat(numbers);
-        }
-      }else{
-      firstNameNumbers.style.backgroundColor = "#f7ffe569";
-      firstNameCharacters = firstNameCharacters.replace(numbers, "");
-      }
-
-      if(firstNameSymbols.value === "1") {
-        firstNameSymbols.style.backgroundColor = "#F7FFE5";
-        if(!firstNameCharacters.includes("!@#$%&")){
-        firstNameCharacters = firstNameCharacters.concat(symbols);
-          }
-        }else{
-        firstNameSymbols.style.backgroundColor = "#f7ffe569";
-        firstNameCharacters = firstNameCharacters.replace(symbols, "");
-      }
-
-      if(lastNameUpercase.value === "1") {
-        lastNameUpercase.style.backgroundColor = "#F7FFE5";
-        if(!lastNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
-          lastNameCharacters = lastNameCharacters.concat(upercase);
-          }
-        }else{
-        lastNameUpercase.style.backgroundColor = "#f7ffe569";
-        lastNameCharacters = lastNameCharacters.replace(upercase, "");
-      }
-      if(lastNameNumbers.value === "1") {
-        lastNameNumbers.style.backgroundColor = "#F7FFE5";
-        if(!lastNameCharacters.includes("0123456789")){
-          lastNameCharacters = lastNameCharacters.concat(numbers);
-          }
-        }else{
-          lastNameNumbers.style.backgroundColor = "#f7ffe569";
-        lastNameCharacters = lastNameCharacters.replace(numbers, "");
-      }
-
-      if(lastNameSymbols.value === "1") {
-        lastNameSymbols.style.backgroundColor = "#F7FFE5";
-        if(!lastNameCharacters.includes("!@#$%&")){
-          lastNameCharacters = lastNameCharacters.concat(symbols);
-          }
-        }else{
-          lastNameSymbols.style.backgroundColor = "#f7ffe569";
-        lastNameCharacters = lastNameCharacters.replace(symbols, "");
-      }
-
-      if(emailUpercase.value === "1") {
-        emailUpercase.style.backgroundColor = "#F7FFE5";
-        if(!emailCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
-          emailCharacters = emailCharacters.concat(upercase);
-          }
-        }else{
-          emailUpercase.style.backgroundColor = "#f7ffe569";
-          emailCharacters = emailCharacters.replace(upercase, "");
-      }
-
-      if(emailNumbers.value === "1") {
-        emailNumbers.style.backgroundColor = "#F7FFE5";
-        if(!emailCharacters.includes("0123456789")){
-          emailCharacters = emailCharacters.concat(numbers);
-          }
-        }else{
-          emailNumbers.style.backgroundColor = "#f7ffe569";
-          emailCharacters = emailCharacters.replace(numbers, "");
-      }
-
-      if(emailSymbols.value === "1") {
-        emailSymbols.style.backgroundColor = "#F7FFE5";
-        if(!emailCharacters.includes("!@#$%&")){
-          emailCharacters = emailCharacters.concat(symbols);
-          }
-        }else{
-          emailSymbols.style.backgroundColor = "#f7ffe569";
-          emailCharacters = emailCharacters.replace(symbols, "");
-      }
-
-  for (let i = 0; i < numRows; i++) {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${generateRandomFirstName()}</td>
-      <td>${generateRandomLastName()}</td>
-      <td>${Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge}</td>
-      <td>${generateRandomEmail()}</td>`;
-    tableBody.appendChild(row);
-
-  }
-
-  // pagination.innerHTML = `Number of pages: ${numPages}`;
+rowSelect.value = ""; //For Testing
 
 
 
+generateButton.addEventListener('click', () => {
+const numPages = Math.ceil(numRows / rowSelect.value);
+const p = document.createElement("p");
+p.innerHTML = `${timeToRecord} / ${numRows}`;
+historyText.appendChild(p);
+
+numRows = Math.floor(Math.random() * (10000 - 500 + 1)) + 500;
 
 
+// Time Seetings:
+let currentTime = new Date();
+let hours = currentTime.getHours();
+let minutes = currentTime.getMinutes();
+let seconds = currentTime.getSeconds();
+
+hours = (hours < 10 ? "0" : "") + hours;
+minutes = (minutes < 10 ? "0" : "") + minutes;
+seconds = (seconds < 10 ? "0" : "") + seconds;
+
+timeToRecord = hours + ":" + minutes + ":" + seconds;
+recordsTime.innerHTML = timeToRecord;
 
 
-  rowsPerPageSelect.addEventListener('change', () => {
+tableHeader.style.visibility = "visible";
+recordsNumber.innerHTML = numRows;
+tableBody.innerHTML = '';
+
+var minAge = parseInt(document.getElementById("age-min-length").value);
+var maxAge = parseInt(document.getElementById("age-max-length").value);
+
+if(firstNameUpercase.value === "1") {
+firstNameUpercase.style.backgroundColor = "#F7FFE5";
+if(!firstNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
+firstNameCharacters = firstNameCharacters.concat(upercase);
+}
+}else{
+firstNameUpercase.style.backgroundColor = "#f7ffe569";
+firstNameCharacters = firstNameCharacters.replace(upercase, "");
+}
+
+if(firstNameNumbers.value === "1") {
+firstNameNumbers.style.backgroundColor = "#F7FFE5";
+if(!firstNameCharacters.includes("0123456789")){
+firstNameCharacters = firstNameCharacters.concat(numbers);
+}
+}else{
+firstNameNumbers.style.backgroundColor = "#f7ffe569";
+firstNameCharacters = firstNameCharacters.replace(numbers, "");
+}
+
+if(firstNameSymbols.value === "1") {
+firstNameSymbols.style.backgroundColor = "#F7FFE5";
+if(!firstNameCharacters.includes("!@#$%&")){
+firstNameCharacters = firstNameCharacters.concat(symbols);
+}
+}else{
+firstNameSymbols.style.backgroundColor = "#f7ffe569";
+firstNameCharacters = firstNameCharacters.replace(symbols, "");
+}
+
+if(lastNameUpercase.value === "1") {
+lastNameUpercase.style.backgroundColor = "#F7FFE5";
+if(!lastNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
+lastNameCharacters = lastNameCharacters.concat(upercase);
+}
+}else{
+lastNameUpercase.style.backgroundColor = "#f7ffe569";
+lastNameCharacters = lastNameCharacters.replace(upercase, "");
+}
+if(lastNameNumbers.value === "1") {
+lastNameNumbers.style.backgroundColor = "#F7FFE5";
+if(!lastNameCharacters.includes("0123456789")){
+lastNameCharacters = lastNameCharacters.concat(numbers);
+}
+}else{
+  lastNameNumbers.style.backgroundColor = "#f7ffe569";
+lastNameCharacters = lastNameCharacters.replace(numbers, "");
+}
+
+if(lastNameSymbols.value === "1") {
+lastNameSymbols.style.backgroundColor = "#F7FFE5";
+if(!lastNameCharacters.includes("!@#$%&")){
+lastNameCharacters = lastNameCharacters.concat(symbols);
+}
+}else{
+lastNameSymbols.style.backgroundColor = "#f7ffe569";
+lastNameCharacters = lastNameCharacters.replace(symbols, "");
+}
+
+if(emailUpercase.value === "1") {
+emailUpercase.style.backgroundColor = "#F7FFE5";
+if(!emailCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
+emailCharacters = emailCharacters.concat(upercase);
+}
+}else{
+emailUpercase.style.backgroundColor = "#f7ffe569";
+emailCharacters = emailCharacters.replace(upercase, "");
+}
+
+if(emailNumbers.value === "1") {
+emailNumbers.style.backgroundColor = "#F7FFE5";
+if(!emailCharacters.includes("0123456789")){
+emailCharacters = emailCharacters.concat(numbers);
+}
+}else{
+emailNumbers.style.backgroundColor = "#f7ffe569";
+emailCharacters = emailCharacters.replace(numbers, "");
+}
+
+if(emailSymbols.value === "1") {
+emailSymbols.style.backgroundColor = "#F7FFE5";
+if(!emailCharacters.includes("!@#$%&")){
+emailCharacters = emailCharacters.concat(symbols);
+}
+}else{
+emailSymbols.style.backgroundColor = "#f7ffe569";
+emailCharacters = emailCharacters.replace(symbols, "");
+}
+
+for (let i = 0; i < numRows; i++) {
+const row = document.createElement('tr');
+row.innerHTML = `
+  <td>${generateRandomFirstName()}</td>
+  <td>${generateRandomLastName()}</td>
+  <td>${Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge}</td>
+  <td>${generateRandomEmail()}</td>`;
+tableBody.appendChild(row);
+
+}
+
+const selectDivision = document.querySelector(".select-btn-division");
+selectDivision.style.visibility = "visible";
+
+
+  rowSelect.addEventListener('change', () => {
     // const newNumPages = Math.ceil(numRows / rowsPerPageSelect.value);
     // pagination.innerHTML = `Number of pages: ${newNumPages}`;
 
@@ -218,8 +216,9 @@ var timeToRecord = "";
       paginationDiv.innerHTML = "";
 
       // Generate buttons for current page and two pages before/after
-      let startPage = currentPage - 2;
-      let endPage = currentPage + 2; 
+      var startPage = currentPage - 2;
+      var endPage = currentPage + 2;
+      // let endPage = Math.min(currentPage + 2, numPages);
 
       if (startPage < 1) {
         startPage = 1;
@@ -228,7 +227,7 @@ var timeToRecord = "";
 
       if (endPage > numPages) {
         endPage = numPages;
-        startPage = Math.max(1, endPage -4);
+        startPage = Math.max(1, endPage - 4);
       }
 
       for (let i = startPage; i <= endPage; i++) {
@@ -251,21 +250,27 @@ var timeToRecord = "";
 
     // Function to update the table based on current page
     function updateTable() {
-      const table = document.getElementById("record");
+      const table = document.querySelector("#record");
       const rows = table.getElementsByTagName("tr");
 
       // Hide all rows
       for (let i = 0; i < rows.length; i++) {
         rows[i].style.display = "none";
       }
-      var recordsPerPage = rowSelect.value
+
       // Show rows for current page
-      const startIndex = (currentPage - 1) * recordsPerPage;
-      const endIndex = Math.min(startIndex + recordsPerPage, numRows);
+      // const startIndex = (currentPage - 1) * rowsPerPageSelect.value;
+
+      // let endIndex = Math.min(startIndex + rowsPerPageSelect.value, numRows);
+
+      let startIndex = (currentPage - 1) * rowSelect.value;
+      const endIndex = currentPage * rowSelect.value;
 
       for (let i = startIndex; i < endIndex; i++) {
         rows[i].style.display = "";
+        // rows[i].style.backgroundColor = "blue";
       }
+      // console.log(rowsPerPageSelect.value);
     }
 
     // Function to go to previous page
@@ -285,10 +290,10 @@ var timeToRecord = "";
 
     // Attach event listeners to prev/next buttons
 
-    let prevBtn = document.getElementById("prev-btn")
+    let prevBtn = document.getElementById("prev-btn");
     prevBtn.addEventListener("click", goToPrevPage);
 
-    let nextBtn = document.getElementById("next-btn")
+    let nextBtn = document.getElementById("next-btn");
     nextBtn.addEventListener("click", goToNextPage);
 
     generatePaginationButtons();
@@ -298,10 +303,7 @@ var timeToRecord = "";
     nextBtn.style.visibility ="visible";
     // Generate initial pagination buttons and show first page
 
-
-
   });
-
 });
 
 
@@ -485,6 +487,9 @@ emailSymbols.addEventListener("change", () => {
   }
 })
 // rangeBox.style.backgroundColor = "#F7FFE5"
+
+
+
 
 
 

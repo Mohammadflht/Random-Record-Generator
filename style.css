@@ -375,10 +375,8 @@ body {
     cursor: pointer;
 }
 .pagination button.active {
-    /* background-color: #    border: 1px solid #234921;
-; */
     background-image: linear-gradient(45deg, #F7FFE5, #eef1e7);
-    /* border: 1px solid #234921; */
+    border: 2px dotted #A0C49D;
 }
 #prev-btn, #next-btn {
     background-color: #F7FFE5;
@@ -399,6 +397,7 @@ body {
 }
 .select-btn-division {
     width: 20%;
+    visibility: hidden;
 }
 #row-number-select {
     padding: .4rem .6rem;
