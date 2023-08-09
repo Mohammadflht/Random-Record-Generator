@@ -80,13 +80,12 @@ rowSelect.value = ""; //For Testing
 
 
 generateButton.addEventListener('click', () => {
-const numPages = Math.ceil(numRows / rowSelect.value);
 const p = document.createElement("p");
 p.innerHTML = `${timeToRecord} / ${numRows}`;
 historyText.appendChild(p);
 
 numRows = Math.floor(Math.random() * (10000 - 500 + 1)) + 500;
-
+var numPages;
 
 // Time Seetings:
 let currentTime = new Date();
@@ -109,6 +108,7 @@ tableBody.innerHTML = '';
 var minAge = parseInt(document.getElementById("age-min-length").value);
 var maxAge = parseInt(document.getElementById("age-max-length").value);
 
+// Filter firstName , lastName and email => Upercase / Numbers / Symbols:
 if(firstNameUpercase.value === "1") {
 if(!firstNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
 firstNameCharacters = firstNameCharacters.concat(upercase);
@@ -121,13 +121,11 @@ firstNameCharacters = firstNameCharacters.concat(numbers);
 }
 }else firstNameCharacters = firstNameCharacters.replace(numbers, "");
 
-
 if(firstNameSymbols.value === "1") {
 if(!firstNameCharacters.includes("!@#$%&")){
 firstNameCharacters = firstNameCharacters.concat(symbols);
 }
 }else firstNameCharacters = firstNameCharacters.replace(symbols, "");
-
 
 if(lastNameUpercase.value === "1") {
 if(!lastNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
@@ -141,13 +139,11 @@ lastNameCharacters = lastNameCharacters.concat(numbers);
 }
 }else lastNameCharacters = lastNameCharacters.replace(numbers, "");
 
-
 if(lastNameSymbols.value === "1") {
 if(!lastNameCharacters.includes("!@#$%&")){
 lastNameCharacters = lastNameCharacters.concat(symbols);
 }
 }else lastNameCharacters = lastNameCharacters.replace(symbols, "");
-
 
 if(emailUpercase.value === "1") {
 if(!emailCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
@@ -155,13 +151,11 @@ emailCharacters = emailCharacters.concat(upercase);
 }
 }else emailCharacters = emailCharacters.replace(upercase, "");
 
-
 if(emailNumbers.value === "1") {
 if(!emailCharacters.includes("0123456789")){
 emailCharacters = emailCharacters.concat(numbers);
 }
 }else emailCharacters = emailCharacters.replace(numbers, "");
-
 
 if(emailSymbols.value === "1") {
 if(!emailCharacters.includes("!@#$%&")){
@@ -185,9 +179,10 @@ const selectDivision = document.querySelector(".select-btn-division");
 selectDivision.style.visibility = "visible";
 
 
-  rowSelect.addEventListener('change', () => {
-    // const newNumPages = Math.ceil(numRows / rowsPerPageSelect.value);
-    // pagination.innerHTML = `Number of pages: ${newNumPages}`;
+rowSelect.addEventListener('change', () => {
+  numPages = Math.ceil(numRows / rowSelect.value);
+
+  console.log(numPages);
 
     var currentPage = 1;
     // Function to generate pagination buttons
@@ -272,22 +267,19 @@ selectDivision.style.visibility = "visible";
 
     // Attach event listeners to prev/next buttons
 
-    let prevBtn = document.getElementById("prev-btn");
-    prevBtn.addEventListener("click", goToPrevPage);
+  let prevBtn = document.getElementById("prev-btn");
+  prevBtn.addEventListener("click", goToPrevPage);
 
-    let nextBtn = document.getElementById("next-btn");
-    nextBtn.addEventListener("click", goToNextPage);
+  let nextBtn = document.getElementById("next-btn");
+  nextBtn.addEventListener("click", goToNextPage);
 
-    generatePaginationButtons();
-    updateTable();
+  generatePaginationButtons();
+  updateTable();
 
-    prevBtn.style.visibility ="visible";
-    nextBtn.style.visibility ="visible";
-    // Generate initial pagination buttons and show first page
-
+  prevBtn.style.visibility ="visible";
+  nextBtn.style.visibility ="visible";
   });
 });
-
 
 function generateRandomFirstName() {
   var min = parseInt(document.getElementById("first-name-min-length").value);
@@ -301,23 +293,20 @@ function generateRandomFirstName() {
   }
 
   return result;
-}
-
-
+} 
 function generateRandomLastName(){
-    var min = parseInt(document.getElementById("last-name-min-length").value);
-    var max = parseInt(document.getElementById("last-name-max-length").value);
+  var min = parseInt(document.getElementById("last-name-min-length").value);
+  var max = parseInt(document.getElementById("last-name-max-length").value);
 
-    var result = "";
-    var length = Math.floor(Math.random() * (max - min + 1)) + min;
+  var result = "";
+  var length = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    for (var i = 0; i < length; i++) {
-      result += lastNameCharacters.charAt(Math.floor(Math.random() * lastNameCharacters.length));
-    }
+  for (var i = 0; i < length; i++) {
+    result += lastNameCharacters.charAt(Math.floor(Math.random() * lastNameCharacters.length));
+  }
 
-    return result;
+  return result;
 }
-
 function generateRandomEmail() {
   const domains = ['@gmail.com', '@yahoo.com'];
   const domain = domains[Math.floor(Math.random() * domains.length)];
@@ -392,19 +381,6 @@ emailConstraint.addEventListener('click', () => {
 });
 
 
-
-
-
-
-
-
-
-
-
-// Filter firstName , lastName and email => Upercase / Numbers / Symbols:
-
-
-
 firstNameUpercase.addEventListener("change", () => {
   if(firstNameUpercase.value === "1"){
     firstNameUpercase.style.backgroundColor = "#F7FFE5";
@@ -468,58 +444,6 @@ emailSymbols.addEventListener("change", () => {
     emailSymbols.style.backgroundColor = "#f7ffe569"
   }
 })
-// rangeBox.style.backgroundColor = "#F7FFE5"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -571,6 +495,3 @@ emailSymbols.addEventListener("change", () => {
 
 //     tableBody.appendChild(row);
 // });
-
-
-
