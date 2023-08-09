@@ -41,6 +41,16 @@ const emailUpercase = document.querySelector('.email-upercase');
 const emailNumbers = document.querySelector('.email-numbers');
 const emailSymbols = document.querySelector('.email-symbols');
 
+firstNameUpercase.value = "0";
+firstNameNumbers.value = "0";
+firstNameSymbols.value = "0";
+lastNameUpercase.value = "0";
+lastNameNumbers.value = "0";
+lastNameSymbols.value = "0";
+emailUpercase.value = "0";
+emailNumbers.value = "0";
+emailSymbols.value = "0";
+
 
 // min and max ranges:
 function showValue(range, id) {
@@ -100,93 +110,65 @@ var minAge = parseInt(document.getElementById("age-min-length").value);
 var maxAge = parseInt(document.getElementById("age-max-length").value);
 
 if(firstNameUpercase.value === "1") {
-firstNameUpercase.style.backgroundColor = "#F7FFE5";
 if(!firstNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
 firstNameCharacters = firstNameCharacters.concat(upercase);
 }
-}else{
-firstNameUpercase.style.backgroundColor = "#f7ffe569";
-firstNameCharacters = firstNameCharacters.replace(upercase, "");
-}
+}else firstNameCharacters = firstNameCharacters.replace(upercase, "");
 
 if(firstNameNumbers.value === "1") {
-firstNameNumbers.style.backgroundColor = "#F7FFE5";
 if(!firstNameCharacters.includes("0123456789")){
 firstNameCharacters = firstNameCharacters.concat(numbers);
 }
-}else{
-firstNameNumbers.style.backgroundColor = "#f7ffe569";
-firstNameCharacters = firstNameCharacters.replace(numbers, "");
-}
+}else firstNameCharacters = firstNameCharacters.replace(numbers, "");
+
 
 if(firstNameSymbols.value === "1") {
-firstNameSymbols.style.backgroundColor = "#F7FFE5";
 if(!firstNameCharacters.includes("!@#$%&")){
 firstNameCharacters = firstNameCharacters.concat(symbols);
 }
-}else{
-firstNameSymbols.style.backgroundColor = "#f7ffe569";
-firstNameCharacters = firstNameCharacters.replace(symbols, "");
-}
+}else firstNameCharacters = firstNameCharacters.replace(symbols, "");
+
 
 if(lastNameUpercase.value === "1") {
-lastNameUpercase.style.backgroundColor = "#F7FFE5";
 if(!lastNameCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
 lastNameCharacters = lastNameCharacters.concat(upercase);
 }
-}else{
-lastNameUpercase.style.backgroundColor = "#f7ffe569";
-lastNameCharacters = lastNameCharacters.replace(upercase, "");
-}
+}else lastNameCharacters = lastNameCharacters.replace(upercase, "");
+
 if(lastNameNumbers.value === "1") {
-lastNameNumbers.style.backgroundColor = "#F7FFE5";
 if(!lastNameCharacters.includes("0123456789")){
 lastNameCharacters = lastNameCharacters.concat(numbers);
 }
-}else{
-  lastNameNumbers.style.backgroundColor = "#f7ffe569";
-lastNameCharacters = lastNameCharacters.replace(numbers, "");
-}
+}else lastNameCharacters = lastNameCharacters.replace(numbers, "");
+
 
 if(lastNameSymbols.value === "1") {
-lastNameSymbols.style.backgroundColor = "#F7FFE5";
 if(!lastNameCharacters.includes("!@#$%&")){
 lastNameCharacters = lastNameCharacters.concat(symbols);
 }
-}else{
-lastNameSymbols.style.backgroundColor = "#f7ffe569";
-lastNameCharacters = lastNameCharacters.replace(symbols, "");
-}
+}else lastNameCharacters = lastNameCharacters.replace(symbols, "");
+
 
 if(emailUpercase.value === "1") {
-emailUpercase.style.backgroundColor = "#F7FFE5";
 if(!emailCharacters.includes("ABCDEFGHIJKLMNOPQRSTUVWXYZ")){
 emailCharacters = emailCharacters.concat(upercase);
 }
-}else{
-emailUpercase.style.backgroundColor = "#f7ffe569";
-emailCharacters = emailCharacters.replace(upercase, "");
-}
+}else emailCharacters = emailCharacters.replace(upercase, "");
+
 
 if(emailNumbers.value === "1") {
-emailNumbers.style.backgroundColor = "#F7FFE5";
 if(!emailCharacters.includes("0123456789")){
 emailCharacters = emailCharacters.concat(numbers);
 }
-}else{
-emailNumbers.style.backgroundColor = "#f7ffe569";
-emailCharacters = emailCharacters.replace(numbers, "");
-}
+}else emailCharacters = emailCharacters.replace(numbers, "");
+
 
 if(emailSymbols.value === "1") {
-emailSymbols.style.backgroundColor = "#F7FFE5";
 if(!emailCharacters.includes("!@#$%&")){
 emailCharacters = emailCharacters.concat(symbols);
 }
-}else{
-emailSymbols.style.backgroundColor = "#f7ffe569";
-emailCharacters = emailCharacters.replace(symbols, "");
-}
+}else emailCharacters = emailCharacters.replace(symbols, "");
+
 
 for (let i = 0; i < numRows; i++) {
 const row = document.createElement('tr');
@@ -487,6 +469,12 @@ emailSymbols.addEventListener("change", () => {
   }
 })
 // rangeBox.style.backgroundColor = "#F7FFE5"
+
+
+
+
+
+
 
 
 
