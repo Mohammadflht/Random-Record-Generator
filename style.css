@@ -124,9 +124,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-#table-header {
-    visibility: hidden;
-}
 #record {
     background-color: transparent;
     border-collapse: collapse;
@@ -134,18 +131,50 @@ body {
     text-align: center;
     font-size: 1rem;
     margin-top: 30px;
+    visibility: hidden;
 }
-#record :is(td, th) {
+#record :is(td) {
     border: 1px solid #60695C;
     padding: 10px;
 
 }
 #record th {
-    padding-top: 12px;
+    padding: 12px 10px 10px 10px;
     padding-bottom: 12px;
     background-color: #60695C;
     color: #F7FFE5;
-
+    border: 1px solid #60695C;
+}
+#table-body tr {
+    cursor: pointer;
+}
+.data-details {
+    width: 80%;
+    height: 250px;
+    background-color: #a0c49da7;
+    margin: auto;
+    border-radius: 4px;
+    display: none; /*Change when click on each record*/
+}
+.records-data {
+    padding: 12px;
+}
+.data-show {
+    background-color: #F7FFE5;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+.back-to-list-btn {
+    padding: 0.25rem 0.5rem;
+    margin: .4rem 0 0 1rem;
+    background-color: #A0C49D;
+    border: 2px solid #234921;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s;
+}
+.back-to-list-btn:hover {
+    background-color: #a0c49d22;
 }
 .right-side {
     width: 20%;
@@ -420,5 +449,20 @@ body {
     color: #234921;
     background-color: #A0C49D;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

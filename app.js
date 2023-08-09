@@ -68,7 +68,8 @@ const pagination = document.querySelector(".pagination");
 const recordsNumber = document.querySelector(".records-number");
 const recordsTime = document.querySelector(".records-time");
 const rowSelect = document.querySelector("#row-number-select");
-const tableHeader = document.querySelector("#table-header");
+const tableView = document.querySelector("#record");
+const dataDetails = document.querySelector(".data-details");
 const historyText = document.querySelector(".history-text");
 var numRows = "";
 var timeToRecord = "";
@@ -101,7 +102,7 @@ timeToRecord = hours + ":" + minutes + ":" + seconds;
 recordsTime.innerHTML = timeToRecord;
 
 
-tableHeader.style.visibility = "visible";
+tableView.style.visibility = "visible";
 recordsNumber.innerHTML = numRows;
 tableBody.innerHTML = '';
 
@@ -172,7 +173,6 @@ row.innerHTML = `
   <td>${Math.floor(Math.random() * (maxAge - minAge + 1)) + minAge}</td>
   <td>${generateRandomEmail()}</td>`;
 tableBody.appendChild(row);
-
 }
 
 const selectDivision = document.querySelector(".select-btn-division");
@@ -279,7 +279,71 @@ rowSelect.addEventListener('change', () => {
   prevBtn.style.visibility ="visible";
   nextBtn.style.visibility ="visible";
   });
+
+
+
+
+
+
+
+
+  // var myTable = document.getElementById("table-body")
+  // var myTableRows = myTable.getElementsByTagName("tr");
+
+  // for (let i = 0; i < myTableRows.length; i++){
+  //   var row = myTableRows[i];
+  //   var cells = row.getElementsByTagName("td");
+
+  //   for(let j = 0; j < cells.length; j++){
+  //     var cell = cells[j];
+  //     var cellValue = cell.innerText;
+
+  //     console.log(cellValue);
+  //   }
+  // }
+
+
+  const tableRows = tableBody.getElementsByTagName('tr');
+  for (let i = 0; i < tableRows.length; i++) {
+    tableRows[i].addEventListener('click', showDetails);
+  }
+
 });
+
+
+
+function showDetails() {
+  // Hide the main table
+  tableView.style.display = 'none';
+  dataDetails.style.display = "block";
+
+const firstNameValueShow = document.querySelector(".first-name-show-card");
+const lastNameValueShow = document.querySelector(".last-name-show-card");
+const ageValueShow = document.querySelector(".age-show-card");
+const emailValueShow = document.querySelector(".email-show-card");
+
+  // Get values of clicked row
+  const cells = this.getElementsByTagName('td');
+
+  // Display values in details section
+  // var valuesHtml = '';
+
+  for (let i = 0; i < cells.length; i++) {
+    firstNameValueShow.innerHTML = cells[0].innerHTML;
+    lastNameValueShow.innerHTML = cells[1].innerHTML;
+    ageValueShow.innerHTML = cells[2].innerHTML;
+    emailValueShow.innerHTML = cells[3].innerHTML;
+  }
+}
+const backButton = document.querySelector(".back-to-list-btn");
+backButton.addEventListener("click", () => {
+  tableView.style.display = '';
+  dataDetails.style.display = "none";
+});
+
+
+
+
 
 function generateRandomFirstName() {
   var min = parseInt(document.getElementById("first-name-min-length").value);
