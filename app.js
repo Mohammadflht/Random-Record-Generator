@@ -306,6 +306,8 @@ rowSelect.addEventListener('change', () => {
   const tableRows = tableBody.getElementsByTagName('tr');
   for (let i = 0; i < tableRows.length; i++) {
     tableRows[i].addEventListener('click', showDetails);
+    tableRows[i].addEventListener('mouseover', changeRowColorActive);
+    tableRows[i].addEventListener('mouseout', changeRowColorNotActive);
   }
 
 });
@@ -328,18 +330,26 @@ const emailValueShow = document.querySelector(".email-show-card");
   // Display values in details section
   // var valuesHtml = '';
 
-  for (let i = 0; i < cells.length; i++) {
     firstNameValueShow.innerHTML = cells[0].innerHTML;
     lastNameValueShow.innerHTML = cells[1].innerHTML;
     ageValueShow.innerHTML = cells[2].innerHTML;
     emailValueShow.innerHTML = cells[3].innerHTML;
-  }
+
 }
 const backButton = document.querySelector(".back-to-list-btn");
 backButton.addEventListener("click", () => {
   tableView.style.display = '';
   dataDetails.style.display = "none";
 });
+
+function changeRowColorActive() {
+  this.style.backgroundColor = "#d6e5b1fd";
+  this.style.transition = "all 0.1s";
+}
+
+function changeRowColorNotActive() {
+  this.style.backgroundColor = "#F7FFE5";
+}
 
 
 
