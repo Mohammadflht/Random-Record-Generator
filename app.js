@@ -76,11 +76,13 @@ var timeToRecord = "";
 
 
 
-rowSelect.value = ""; //For Testing
+rowSelect.value = ""; //clear select value
 
 
 
 generateButton.addEventListener('click', () => {
+rowSelect.value = ""; //clear select value
+
 const p = document.createElement("p");
 p.innerHTML = `${timeToRecord} / ${numRows}`;
 historyText.appendChild(p);
@@ -177,17 +179,24 @@ tableBody.appendChild(row);
 
 const selectDivision = document.querySelector(".select-btn-division");
 selectDivision.style.visibility = "visible";
+const paginationDiv = document.querySelector(".pagination");
+const prevBtn = document.querySelector("#prev-btn");
+const nextBtn = document.querySelector("#next-btn");
+
+paginationDiv.innerHTML = "";
+prevBtn.style.visibility = "hidden";
+nextBtn.style.visibility = "hidden";
 
 
 rowSelect.addEventListener('change', () => {
   numPages = Math.ceil(numRows / rowSelect.value);
 
-  console.log(numPages);
+  // prevBtnDisplay.style.visibility = "hidden";
+  // nextBtnDisplay.style.visibility = "hidden";
 
     var currentPage = 1;
     // Function to generate pagination buttons
     function generatePaginationButtons() {
-      const paginationDiv = document.querySelector(".pagination");
 
       // Clear previous buttons
       paginationDiv.innerHTML = "";
@@ -267,10 +276,7 @@ rowSelect.addEventListener('change', () => {
 
     // Attach event listeners to prev/next buttons
 
-  let prevBtn = document.getElementById("prev-btn");
   prevBtn.addEventListener("click", goToPrevPage);
-
-  let nextBtn = document.getElementById("next-btn");
   nextBtn.addEventListener("click", goToNextPage);
 
   generatePaginationButtons();
@@ -280,27 +286,6 @@ rowSelect.addEventListener('change', () => {
   nextBtn.style.visibility ="visible";
   });
 
-
-
-
-
-
-
-
-  // var myTable = document.getElementById("table-body")
-  // var myTableRows = myTable.getElementsByTagName("tr");
-
-  // for (let i = 0; i < myTableRows.length; i++){
-  //   var row = myTableRows[i];
-  //   var cells = row.getElementsByTagName("td");
-
-  //   for(let j = 0; j < cells.length; j++){
-  //     var cell = cells[j];
-  //     var cellValue = cell.innerText;
-
-  //     console.log(cellValue);
-  //   }
-  // }
 
 
   const tableRows = tableBody.getElementsByTagName('tr');
