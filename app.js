@@ -73,6 +73,8 @@ const dataDetails = document.querySelector(".data-details");
 const historyText = document.querySelector(".history-text");
 var numRows = "";
 var timeToRecord = "";
+const contentArea = document.querySelector(".contents-area");
+contentArea.style.display = "none";
 
 
 
@@ -81,6 +83,7 @@ rowSelect.value = ""; //clear select value
 
 
 generateButton.addEventListener('click', () => {
+  contentArea.style.display = "";
 rowSelect.value = ""; //clear select value
 
 const p = document.createElement("p");
@@ -339,7 +342,6 @@ function changeRowColorNotActive() {
 
 
 
-
 function generateRandomFirstName() {
   var min = parseInt(document.getElementById("first-name-min-length").value);
   var max = parseInt(document.getElementById("first-name-max-length").value);
@@ -503,14 +505,6 @@ emailSymbols.addEventListener("change", () => {
     emailSymbols.style.backgroundColor = "#f7ffe569"
   }
 })
-
-
-
-
-
-
-
-
 
 
 
