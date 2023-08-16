@@ -21,6 +21,7 @@ body {
     height: 100%;
     background-color: transparent;
 }
+
 /* header section */
 .header {
     width: 100%;
@@ -110,8 +111,8 @@ body {
 .history-text p:first-child {
     display: none;
 }
-/* content area */
 
+/* content area */
 .contents-area {
     width: 50%;
     height: 90%;
@@ -322,7 +323,6 @@ body {
 }
 
 /* Display mode */
-
 .display-mode {
     width: 80%;
     height: 22%;
@@ -363,8 +363,6 @@ body {
 }
 
 /* footer section */
-
-
 .footer {
     width: 100%;
     height: 10%;
@@ -449,20 +447,3 @@ body {
     color: #234921;
     background-color: #A0C49D;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
