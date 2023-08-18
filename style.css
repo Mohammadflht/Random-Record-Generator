@@ -7,6 +7,7 @@
     margin: 0;
     text-decoration: none;
     box-sizing: border-box;
+    transition: all 0.1s;
 }
 body {
     width: 100vw;
@@ -27,6 +28,7 @@ body {
     width: 100%;
     height: 10%;
     display: flex;
+
 }
 .header-text {
     width: 90%;
@@ -45,6 +47,9 @@ body {
     font-size: 1.2rem;
     background-color: #A0C49D;
     animation: blinks 4s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @keyframes blinks {
     0%{color: transparent;};
@@ -77,6 +82,9 @@ body {
     font-size: 0.9rem;
     transition: all .4s;
     color: #40783b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .generator-btn:hover {
     border: 4px solid #40783b;
@@ -238,6 +246,15 @@ body {
 #email-min-result {
     margin: 1rem 0 1rem 0;
 }
+.min-result {
+    font-size: 1rem;
+}
+.max-result {
+    font-size: 1rem;
+}
+.filter-check {
+    font-size: 0.8rem;
+}
 .max-length {
     width: 100%;
     appearance: none;
@@ -280,7 +297,6 @@ body {
     cursor: pointer;
     margin: .6rem 0 0;
     text-shadow: 0 0 2px #234921;
-    font-size: .8rem;
 }
 .checkbox-division {
     display: flex;
@@ -320,6 +336,7 @@ body {
     border: 1px solid #234921;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 0.84rem;
 }
 
 /* Display mode */
@@ -446,4 +463,7 @@ body {
     text-shadow: 0 0 2px #234921;
     color: #234921;
     background-color: #A0C49D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
