@@ -43,4 +43,41 @@
     .history-text p {
         font-size: 0.7rem;
     }
+    .data-details {
+        width: 40%;
+    }
+    .records-data {
+        padding: 12px;
+        font-size: .8rem;
+    }
+    .data-show {
+        padding: 0.2rem 0.4rem;
+    }
+    .division-back-to-list-btn {
+        height: 26%;
+    }
+    .back-to-list-btn {
+        width: 70px;
+        font-size: .66rem;
+    }
+    .back-to-list-btn:hover {
+        width: 90px;
+    }
+
+    #record {
+        width: 90%;
+        text-align: center;
+        font-size: .9rem;
+        margin-top: 20px;
+    }
+    #record :is(td) {
+        padding: 8px;
+    
+    }
+    #record th {
+        padding: 10px 8px px 8px;
+    }
+    #table-body tr {
+        cursor: pointer;
+    }
 }
