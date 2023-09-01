@@ -347,6 +347,12 @@ function generateRandomFirstName() {
   var max = parseInt(document.getElementById("first-name-max-length").value);
 
   var result = "";
+  if (min > max) {
+    let temp;
+    temp = min;
+    min = max;
+    max = temp;
+  }
   var length = Math.floor(Math.random() * (max - min + 1)) + min;
 
   for (var i = 0; i < length; i++) {
@@ -360,6 +366,12 @@ function generateRandomLastName(){
   var max = parseInt(document.getElementById("last-name-max-length").value);
 
   var result = "";
+  if (min > max) {
+    let temp;
+    temp = min;
+    min = max;
+    max = temp;
+  }
   var length = Math.floor(Math.random() * (max - min + 1)) + min;
 
   for (var i = 0; i < length; i++) {
@@ -376,6 +388,12 @@ function generateRandomEmail() {
   var max = parseInt(document.getElementById("email-max-length").value);
 
   var result = "";
+  if (min > max) {
+    let temp;
+    temp = min;
+    min = max;
+    max = temp;
+  }
   var length = Math.floor(Math.random() * (max - min + 1)) + min;
 
   for (var i = 0; i < length - 10; i++) {
