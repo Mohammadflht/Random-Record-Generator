@@ -15,7 +15,7 @@ function updateTime() {
     dayNumber = (dayNumber < 10 ? "0" : "") + dayNumber;
     mounthNumber = (mounthNumber < 10 ? "0" : "") + mounthNumber;
 
-    timePart.innerHTML = hours + ":" + minutes + ":" + seconds + " " + dayNumber + "/" + mounthNumber + "/" + year;
+    timePart.innerHTML = hours + ":" + minutes + ":" + seconds + `<br>` + dayNumber + "/" + mounthNumber + "/" + year;
 
 }
 setInterval(updateTime, 1000);
