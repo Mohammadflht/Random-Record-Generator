@@ -8,15 +8,13 @@ function updateTime() {
     let year = currentTime.getFullYear();
     let dayNumber = currentTime.getDate();
     let mounthNumber = currentTime.getMonth() + 1;
-
+    
     hours = (hours < 10 ? "0" : "") + hours;
     minutes = (minutes < 10 ? "0" : "") + minutes;
     seconds = (seconds < 10 ? "0" : "") + seconds;
     dayNumber = (dayNumber < 10 ? "0" : "") + dayNumber;
     mounthNumber = (mounthNumber < 10 ? "0" : "") + mounthNumber;
-
     timePart.innerHTML = hours + ":" + minutes + ":" + seconds + `<br>` + dayNumber + "/" + mounthNumber + "/" + year;
-
 }
 setInterval(updateTime, 1000);
 
@@ -58,8 +56,6 @@ function showValue(range, id) {
   let value = document.querySelector(`#${id}`);
   value.innerHTML = "Value: " + ranges.value;
 }
-
-// console.log(firstNameMinValue);
 
 // Generate Random  Records (Functionality):
 const generateButton = document.querySelector(".generator-btn");
